@@ -1,5 +1,7 @@
 <template>
-    <input type="submit" value="Enviar">
+    <div>
+        <input type="submit" value="Enviar">
+    </div>
 </template>
 <script>
     export default {

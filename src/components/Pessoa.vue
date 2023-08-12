@@ -1,18 +1,20 @@
 <template>
     <div>
         <h2>Esta é a descrição da pessoa: {{ nome }}</h2>
-        <p>Estou trabalhando no momento</p>
-        <p>Utilizo as seguintes tecnologias</p>
-        <ul>
-            <li>Java</li>
-            <li>Python</li>
-            <li>javaScript</li>
-        </ul>
+        <Info />
+        <Form />
     </div>        
 </template>
 <script>
+    import Info from './Info.vue';
+    import Form from './Form.vue';
+
     export default {
         name: 'Pessoa',
+        components: {
+            Info,
+            Form
+        },
         data(){
             return {
                 nome: "João Victor"
