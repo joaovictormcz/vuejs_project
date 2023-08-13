@@ -2,17 +2,21 @@
     <div>
         <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
         <p v-else>Estou em busca de novas oportunidades!</p>
-        <p>Utilizo as seguintes tecnologias:</p>
+        <p>Utilizo as seguintes tecnologias para Backend:</p>
         <ul>
-            <li>JavaScript</li> 
-            <li>Java</li>
-            <li>Python</li>
+            <li v-for="(technology, index) in backend_technologies" v-bind:key="index">Indice: {{ index }} valor: {{ technology }} </li>             
+        </ul>
+        <p>Utilizo as seguintes tecnologias para front-end:</p>
+        <ul>
+            <li v-for="technology in frontend_technologies" :key="technology.id"> 
+                {{ technology.language }} 
+            </li>
         </ul>
         <div>
             <button @click="showEmail">{{ textoBtn }}</button>
         </div>
         <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
-        <p>Para acessar o meu portfólio basta <a v-bind:href="meu_link" target="_blank">clicar aqui</a></p>   
+        <p class="teste">Para acessar o meu portfólio basta <a v-bind:href="meu_link" target="_blank">clicar aqui</a></p>   
         <Picture />
     </div>
 </template>
@@ -30,7 +34,13 @@
                 mostrar_email: false,
                 email: 'joaovictor.mcz@gmail.com',
                 meu_link: 'https://google.com',
-                textoBtn: 'Mostrar e-mail'
+                textoBtn: 'Mostrar e-mail',
+                backend_technologies: ["JavaScript", "Java", "Python", "Go"],
+                frontend_technologies: [
+                    {id: 1, language: 'HTML'},
+                    {id: 2, language: 'CSS'},
+                    {id: 3, language: 'Vue'}
+                ]
             }
         },
         methods:{
@@ -45,3 +55,9 @@
         }
     }
 </script>
+
+<style>
+    .paragrafo-pai {
+        color: red;
+    }
+</style>
