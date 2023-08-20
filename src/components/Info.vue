@@ -1,10 +1,13 @@
 <template>
     <div>
+        <p>{{ email }}</p>
         <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
         <p v-else>Estou em busca de novas oportunidades!</p>
         <p>Utilizo as seguintes tecnologias para Backend:</p>
         <ul>
-            <li v-for="(technology, index) in backend_technologies" v-bind:key="index">Indice: {{ index }} valor: {{ technology }} </li>             
+            <li v-for="(technology, index) in backend_technologies" v-bind:key="index">
+                {{ technology }} 
+            </li>             
         </ul>
         <p>Utilizo as seguintes tecnologias para front-end:</p>
         <ul>
@@ -28,11 +31,13 @@
         components: {
             Picture
         },
+        props: {
+            email: String,
+            esta_trabalhando: Boolean
+        },
         data(){
-            return {
-                esta_trabalhando: true,
+            return {                
                 mostrar_email: false,
-                email: 'joaovictor.mcz@gmail.com',
                 meu_link: 'https://google.com',
                 textoBtn: 'Mostrar e-mail',
                 backend_technologies: ["JavaScript", "Java", "Python", "Go"],
